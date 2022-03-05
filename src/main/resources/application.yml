@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-boot-tutorial
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://127.0.0.1:5432/VVG?stringtype=unspecified&ApplicationName=tutorial
+    username: postgres
+    password: 2008a08b08c
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true  #使用数值timestamp表示日期
+
+mybatis.configuration.mapUnderscoreToCamelCase: true

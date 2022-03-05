@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Select Species - VGV</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/VGV/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/VGV/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="/VGV/css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/VGV/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/VGV/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/VGV/img/favicon.ico">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <link rel="stylesheet" href="/VGV/vendor/bootstrap-select/bootstrap-select.min.css">
+</head>
+<body>
+<div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand --><a href="/VGV/home" class="navbar-brand d-none d-sm-inline-block">
+                        <div class="brand-text d-none d-lg-inline-block"><span>Virus Genome </span><strong> Viewer</strong></div>
+                        <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>VMG</strong></div></a>
+                        <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="/VGV/img/favicon.png" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="title">
+                    <h1 class="h4">VGV</h1>
+                    <p>Micro exploration</p>
+                </div>
+            </div>
+<!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+<ul class="list-unstyled">
+    <li><a href="/VGV/home"> <i class="icon-home"></i>Home </a></li>
+    <li class="active"><a href="#dropdown1" aria-expanded="true" data-toggle="collapse"> <i class="fa fa-sliders"></i>Genome Browser </a>
+        <ul id="dropdown1" class="list-unstyled collapse show ">
+            <li class="active"><a href="/VGV/select_species">Select Species</a></li>
+            <li><a href="/VGV/gb">Show</a></li>
+        </ul>
+    </li>
+    <li><a href="#dropdown2" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-align-left"></i>Multiple Alignment </a>
+        <ul id="dropdown2" class="collapse list-unstyled ">
+            <li><a href="/VGV/select_sequences">Select Sequences</a></li>
+            <li ><a href="/VGV/mul">Show</a></li>
+        </ul>
+    </li>
+    <li><a href="#dropdown3" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-gear"></i>SARS-CoV-2 Evolution </a>
+        <ul id="dropdown3" class="collapse list-unstyled ">
+            <li><a href="/VGV/ncov/select_sequences">Select Strains</a></li>
+            <li><a href="/VGV/ncov/show">Show</a></li>
+        </ul>
+    </li>
+</ul><span class="heading">Extras</span>
+<ul class="list-unstyled">
+    <li> <a href="/VGV/documentation"> <i class="fa fa-file-text-o"></i>Documentation</a></li>
+    <li> <a href="javascript:void(0)" onclick="$(this).html('<i class=&quot;fa fa-envelope-o&quot;></i>weiyanle@126.com');"> <i class="fa fa-envelope-o"></i>Contact Us </a></li>
+</ul>
+</nav>
+<div class="content-inner">
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">Select Species</h2>
+        </div>
+    </header>
+    <!-- Forms Section-->
+    <section class="forms">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="form-horizontal">
+                                <div class="line"></div>
+                                <div class="form-group row">
+                                    <div class="col-sm-8 offset-2">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Input species, Taxonomy ID, or RefSeq ID...">
+                                                <div class="input-group-prepend">
+                                                    <button type="button" class="btn btn-primary">Search</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="line"></div>
+                            <div class="table-responsive">                       
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Species</th>
+                              <th>Taxonomy ID</th>
+                              <th>RefSeq</th>
+                              <th>Length</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr th:each="line,stat:${lines}">
+                              <th scope="row" th:text="${stat.index+1}"></th>
+                              <td th:text="${line[0]}"></td>
+                              <td th:text="${line[1]}"></td>
+                              <td th:text="${line[2]}"></td>
+                              <td th:text="|${line[3]}bp|"></td>
+                              <td><a th:href="@{'/gb/spe='+${line[2]}+'&loc=0:1..'+${line[3]}+'&track=seq+ref+pro+gcp'}" class="btn btn-secondary" style="padding: 0px;padding-right: 5px;padding-left: 5px;"><i class="fa fa-check"> </i> Select</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Copyright &copy; 2021. Virus Genome Viewer All rights reserved.</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <p></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+    </div>
+</div>
+<!-- JavaScript files-->
+<script src="/VGV/vendor/jquery/jquery.min.js"></script>
+<script src="/VGV/vendor/popper.js/umd/popper.min.js"> </script>
+<script src="/VGV/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/VGV/vendor/jquery.cookie/jquery.cookie.js"> </script>
+<script src="/VGV/vendor/jquery-validation/jquery.validate.min.js"></script>
+<!--<script src="/VGV/js/charts-home.js"></script>-->
+<!-- Main File-->
+<script src="/VGV/js/front.js"></script>
+<script src="/VGV/vendor/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="/VGV/js/d3.min.js"></script>
+</body>
+</html>

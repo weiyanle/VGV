@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Select Sequences - VGV</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/VGV/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/VGV/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="/VGV/css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/VGV/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/VGV/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/VGV/img/favicon.ico">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <link rel="stylesheet" href="/VGV/vendor/bootstrap-select/bootstrap-select.min.css">
+</head>
+<body>
+<div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand --><a href="/VGV/home" class="navbar-brand d-none d-sm-inline-block">
+                        <div class="brand-text d-none d-lg-inline-block"><span>Virus Genome </span><strong> Viewer</strong></div>
+                        <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>VMG</strong></div>
+                    </a>
+                        <!-- Toggle Button--><a id="toggle-btn" href="#"
+                                                class="menu-btn active"><span></span><span></span><span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="/VGV/img/favicon.png" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="title">
+                    <h1 class="h4">VGV</h1>
+                    <p>Micro exploration</p>
+                </div>
+            </div>
+            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+            <ul class="list-unstyled">
+                <li><a href="/VGV/home"> <i class="icon-home"></i>Home </a></li>
+                <li><a href="#dropdown1" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-sliders"></i>Genome
+                    Browser </a>
+                    <ul id="dropdown1" class="collapse list-unstyled ">
+                        <li><a href="/VGV/select_species">Select Species</a></li>
+                        <li><a href="/VGV/gb">Show</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="#dropdown2" aria-expanded="true" data-toggle="collapse"> <i
+                        class="fa fa-align-left"></i>Multiple Alignment </a>
+                    <ul id="dropdown2" class=" list-unstyled collapse show">
+                        <li class="active"><a href="/VGV/select_sequences">Select Sequences</a></li>
+                        <li><a href="/VGV/mul">Show</a></li>
+                    </ul>
+                </li>
+                <li><a href="#dropdown3" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-gear"></i>SARS-CoV-2 Evolution </a>
+                    <ul id="dropdown3" class="collapse list-unstyled ">
+                        <li><a href="/VGV/ncov/select_sequences">Select Strains</a></li>
+                        <li><a href="/VGV/ncov/show">Show</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <span class="heading">Extras</span>
+            <ul class="list-unstyled">
+                <li><a href="/VGV/documentation"> <i class="fa fa-file-text-o"></i>Documentation</a></li>
+                <li> <a href="javascript:void(0)" onclick="$(this).html('<i class=&quot;fa fa-envelope-o&quot;></i>weiyanle@126.com');"> <i class="fa fa-envelope-o"></i>Contact Us </a></li>
+            </ul>
+        </nav>
+        <div class="content-inner">
+            <!-- Page Header-->
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom">Select Sequences</h2>
+                </div>
+            </header>
+            <!-- Forms Section-->
+            <section id="status" class="forms" style="padding-bottom: 0px;display:none;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">Job Status</h3>
+                                </div>
+                                <div id="jobid" class="card-body text-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="forms" style="padding-bottom: 0px;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">Selected List</h3>
+                                </div>
+                                <div class="card-body text-center">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>RefSeq</th>
+                                                <th>Type</th>
+                                                <th>Name</th>
+                                                <th>Start</th>
+                                                <th>End</th>
+                                                <th>Length</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="edtab">
+                                            <tr>
+                                                <td colspan="7" style="text-align: center;">No sequence for alignment
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <button type="button" data-toggle="modal" data-target="#myModal"
+                                            class="btn btn-primary" onclick="postSeq()">Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="forms">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">All Sequences</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form class="form-horizontal">
+                                        <div id="ingro" class="form-group row">
+                                            <div class="col-sm-8 offset-2">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"
+                                                               placeholder="Input species, Taxonomy ID, or RefSeq ID...">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary">Search
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="table-responsive">
+                                        <table id="ingtab" class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Species</th>
+                                                <th>Taxonomy ID</th>
+                                                <th>RefSeq</th>
+                                                <th>Length</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="line,stat:${lines}">
+                                                <th scope="row" th:text="${stat.index+1}"></th>
+                                                <td th:text="${line[0]}"></td>
+                                                <td th:text="${line[1]}"></td>
+                                                <td th:text="${line[2]}"></td>
+                                                <td th:text="|${line[3]}bp|"></td>
+                                                <td><a href="javascript:void(0);" class="btn btn-secondary" style="padding: 0px;padding-right: 5px;padding-left: 5px;" th:onclick="showdetail([[${line[2]}]],[[${line[0]}]])"><i class="fa fa-chevron-circle-right"> </i></a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- Page Footer-->
+            <footer class="main-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Copyright &copy; 2021. Virus Genome Viewer All rights reserved.</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <p></p>
+                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+<!-- JavaScript files-->
+<script src="/VGV/vendor/jquery/jquery.min.js"></script>
+<script src="/VGV/vendor/popper.js/umd/popper.min.js"></script>
+<script src="/VGV/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/VGV/vendor/jquery.cookie/jquery.cookie.js"></script>
+<script src="/VGV/vendor/jquery-validation/jquery.validate.min.js"></script>
+<!--<script src="/VGV/js/charts-home.js"></script>-->
+<!-- Main File-->
+<script src="/VGV/js/front.js"></script>
+<script src="/VGV/vendor/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="/VGV/js/d3.min.js"></script>
+
+
+<script type="text/javascript" th:inline="javascript">
+    var oldht; //记录选择物种表格原内容
+    var ingro;
+
+    function showdetail(nc, spe) {
+        oldht = $("#ingtab").html() //记录选择物种表格原内容
+        ingro = $("#ingro").html()
+        $("#ingtab").html("")
+        $("#ingro").html("")
+        $("#ingro").append('<div class="col-sm-8 offset-2"><h4>' + spe + '</h4></div><div class="col-sm-1"><button type="button" class="btn btn-primary" onclick="retable();"><i class="fa fa-reply"></i>&nbsp;Return</button><div>')
+        $("#ingtab").append($('<thead><tr><th>#</th><th>RefSeq</th><th>Type</th><th>Name</th><th>Start</th><th>End</th><th>Length</th><th></th></tr></thead><tbody></tbody>'))
+        var infoj;
+        $.ajax({
+            url: '/VGV/track/' + nc + '/info.json',
+            async: false, //关掉异步
+            dataType: 'json',
+            success: function (result) {
+                infoj = result;
+            }
+        });
+        $("#ingtab").children("tbody").append($('<tr><th>1</th><td>' + nc + '</td><td>Genome</td><td>' + infoj.info + '</td><td>1</td><td>' + infoj.seq_len + '</td><td>' + infoj.seq_len + 'bp</td><td><a href="javascript:void(0);" class="btn btn-secondary" style="padding: 0px;padding-right: 5px;padding-left: 5px;" onclick="addentry($(this))"><i class="fa fa-plus-circle"></i> Add To List</a></td></tr>'))
+        let num = 2
+        var genej;
+        $.ajax({
+            url: '/VGV/track/' + nc + '/refseq.json',
+            async: false, //关掉异步
+            dataType: 'json',
+            success: function (result) {
+                genej = result;
+            }
+        });
+        for (let gene of genej.annos) {
+            if (gene.feature == "gene") {
+                $("#ingtab").children("tbody").append($('<tr><th>' + num + '</th><td>' + nc + '</td><td>Gene</td><td>' + gene.attributes.Name + '</td><td>' + gene.start + '</td><td>' + gene.end + '</td><td>' + (gene.end - gene.start + 1) + 'bp</td><td><a href="javascript:void(0);" class="btn btn-secondary" style="padding: 0px;padding-right: 5px;padding-left: 5px;" onclick="addentry($(this))"><i class="fa fa-plus-circle"></i> Add To List</a></td></tr>'))
+                num++;
+            }
+        }
+        var proj;
+        $.ajax({
+            url: '/VGV/track/' + nc + '/proseq.json',
+            async: false, //关掉异步
+            dataType: 'json',
+            success: function (result) {
+                proj = result;
+            }
+        });
+        for (let pro of proj.pros) {
+            if(pro.hasOwnProperty("seq")) {
+                $("#ingtab").children("tbody").append($('<tr><th>' + num + '</th><td>' + nc + '</td><td>Protein</td><td>' + pro.protein_names + '</td><td>' + (pro.start == undefined ? '-' : pro.start) + '</td><td>' + (pro.end == undefined ? '-' : pro.end) + '</td><td>' + (pro.length) + 'AAs</td><td><a href="javascript:void(0);" class="btn btn-secondary" style="padding: 0px;padding-right: 5px;padding-left: 5px;" onclick="addentry($(this))"><i class="fa fa-plus-circle"></i> Add To List</a></td></tr>'))
+                num++;
+            }
+        }
+    }
+
+    function addentry(ent) { //添加比对序列
+        if ($("#edtab").children().children().attr('colspan') == undefined) { //已经选择了序列
+            if (ent.parent().parent().children('td:eq(1)').html() != $("#edtab").children().children('td:eq(1)').html()) { //判断nc type name是否已经与list中重复，或type不同，报提示
+                alert('Failed to add sequence because of different types')
+                return
+            }
+            if ($("#edtab").html().indexOf(ent.parent().parent().html()) != -1) {
+                alert('Already added')
+                return
+            }
+        } else {
+            $("#edtab").children().remove()
+        }
+        $("#edtab").append('<tr>' + ent.parent().parent().html() + '</tr>')
+        var alnum = $("#edtab").children('tr').length
+        $("#edtab").children('tr:eq(-1)').children('th').html(alnum)
+        $("#edtab").children('tr:eq(-1)').children('td:eq(-1)').html('<a href="javascript:void(0);" class="btn btn-secondary" style="padding: 0px;padding-right: 5px;padding-left: 5px;" onclick="removeentry($(this))"><i class="fa fa-times-circle"></i> Remove From List</a>')
+        ent.parent().html('<a href="javascript:void(0);" class="btn btn-secondary" style="padding: 0px;padding-right: 5px;padding-left: 5px;"><i class="fa fa-check-circle"></i>Added</a>')
+    }
+
+    function removeentry(ent) { //删除比对序列
+        ent.parent().parent().remove()
+        if ($("#edtab").children().length == 0) {
+            $("#edtab").append('<tr><td colspan="7" style="text-align: center;">No sequence for alignment</td></tr>')
+        } else {
+            $("#edtab").children().each(function (i, n) { //序号更改
+                let obj = $(n)
+                obj.children('th').html(i + 1)
+            })
+        }
+    }
+
+    function retable(ent) { //返回至物种表格
+        $("#ingtab").html(oldht)
+        $("#ingro").html(ingro)
+    }
+
+    function postSeq() {   //向后端传递提交信息
+        if(!confirm("Confirm to submit sequences? You'll get a job ID if the sequences are never submitted before, else you can see the result immediately."))return;
+        if ($("#edtab").children().length == 0) {
+            alert('Please select sequences')
+        }else {
+            var ret = []
+            $("#edtab").children().each(function (i, n) {
+                let obj = $(n)
+                let seqobj = {
+                    refseq: obj.children()[1].innerText,
+                    type: obj.children()[2].innerText,
+                    name: obj.children()[3].innerText
+                }
+                ret.push(seqobj)
+            })
+            $.ajax({
+                url: "/VGV/select_sequences/postdata",    // 提交到controller的url路径
+                contentType:'application/json',
+                type: "POST",
+                data: JSON.stringify(ret),
+                dataType: "text",    // 服务器端返回的数据类型
+                success: function (data) {
+                    window.location.href="/VGV/mul/jobID="+data
+                },
+            });
+        }
+    }
+
+    var status = [[${status}]];
+    if(status!="Select"){
+        addJobStatus(status);
+    }
+    function addJobStatus(staAndID){   //添加job运行信息
+        sta=staAndID.split("_")[0];
+        jobID=staAndID.substr(sta.length+1);
+        if(sta=="Running"){
+            $("#status").css("display","block");
+            $("#jobid").html("<p>Your job <strong><span>"+jobID+"</span></strong> is running. You can visit <a href=\"http://genome.hit.edu.cn/VGV/mul/jobID="+jobID+"\">http://genome.hit.edu.cn/VGV/mul/jobID="+jobID+"</a> to see the result after the job finnished.</p>");
+        }else{
+            $("#status").css("display","block");
+            $("#jobid").html("<p>There is no job: <strong><span>"+jobID+"</span></strong>.</p>");
+        }
+    }
+</script>
+</body>
+</html>

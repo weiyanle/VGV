@@ -1,0 +1,361 @@
+{
+    "19A":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#463bd0",
+        "strokeColor": "#3d33b5",
+        "firstTime": "1577289600000",
+        "parents": "",
+        "children":["20A","19B"],
+        "nuc":
+        {
+            "8782": "C",
+            "14408": "C"
+        }
+    },
+    "19B":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#456ede",
+        "strokeColor": "#3c5fc1",
+        "firstTime": "1580140800000",
+        "parents": "19A",
+        "children":[],
+        "nuc":
+        {
+            "8782": "T",
+            "28144": "C"
+        }
+    },
+    "20A":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#5197d0",
+        "strokeColor": "#4683b5",
+        "firstTime": "1581177600000",
+        "parents": "19A",
+        "children":["20B","20C","20E (EU1)","21A (Delta)","21B (Kappa)","21D (Eta)"],
+        "nuc":
+        {
+            "8782": "C",
+            "14408": "T",
+            "23403": "G"
+        }
+    },
+    "20B":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#64b4af",
+        "strokeColor": "#579c98",
+        "firstTime": "1582732800000",
+        "parents": "20A",
+        "children":["20I (Alpha, V1)","20J (Gamma, V3)","20F","20D","21E (Theta)","21G (Lambda)","21H"],
+        "nuc":
+        {
+            "8782": "C",
+            "14408": "T",
+            "23403": "G",
+            "28881": "A",
+            "28882": "A"
+        }
+    },
+    "20C":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#80c388",
+        "strokeColor": "#6fa976",
+        "firstTime": "1582646400000",
+        "parents": "20A",
+        "children":["20H (Beta, V2)","20G","21C (Epsilon)","21F (Iota)"],
+        "nuc":
+        {
+            "1059": "T",
+            "8782": "C",
+            "14408": "T",
+            "23403": "G",
+            "25563": "T"
+        }
+    },
+    "20D":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#a1cb67",
+        "strokeColor": "#8cb059",
+        "firstTime": "1584806400000",
+        "parents": "20B",
+        "children":[],
+        "nuc":
+        {
+            "4002": "T",
+            "10097": "A",
+            "13536": "T",
+            "23731": "T"
+        }
+    },
+    "20E (EU1)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#c6ca51",
+        "strokeColor": "#abaf46",
+        "firstTime": "1592582400000",
+        "parents": "20A",
+        "children":[],
+        "nuc":
+        {
+            "8782": "C",
+            "14408": "T",
+            "23403": "G",
+            "22227": "T",
+            "28932": "T",
+            "29645": "T"
+        }
+    },
+    "20F":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#e4be44",
+        "strokeColor": "#c5a53b",
+        "firstTime": "1591286400000",
+        "parents": "20B",
+        "children":[],
+        "nuc":
+        {
+            "1163": "T",
+            "7540": "C",
+            "16647": "T",
+            "18555": "T",
+            "22992": "A",
+            "23401": "A"
+        }
+    },
+    "20G":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#f6a13c",
+        "strokeColor": "#d58c34",
+        "firstTime": "1595606400000",
+        "parents": "20C",
+        "children":[],
+        "nuc":
+        {
+            "10319": "T",
+            "18424": "G",
+            "21304": "T",
+            "25907": "T",
+            "27964": "T",
+            "28472": "T",
+            "28869": "T"
+        }
+    },
+    "20H (Beta, V2)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#f56f32",
+        "strokeColor": "#d4602c",
+        "firstTime": "1598889600000",
+        "parents": "20C",
+        "children":[],
+        "nuc":
+        {
+            "1059": "T",
+            "8782": "C",
+            "14408": "T",
+            "23403": "G",
+            "25563": "T",
+            "23063": "T",
+            "23012": "A"
+        }
+    },
+    "20I (Alpha, V1)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#ec3227",
+        "strokeColor": "#cd2c22",
+        "firstTime": "1607529600000",
+        "parents": "20B",
+        "children":[],
+        "nuc":
+        {
+            "8782": "C",
+            "14408": "T",
+            "23403": "G",
+            "28881": "A",
+            "28882": "A",
+            "23063": "T",
+            "14676": "T",
+            "15279": "T"
+        }
+    },
+    "20J (Gamma, V3)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#96446b",
+        "strokeColor": "#823b5d",
+        "firstTime": "1608480000000",
+        "parents": "20B",
+        "children":[],
+        "nuc":
+        {
+            "733": "C",
+            "2749": "T",
+            "3828": "T",
+            "5648": "C",
+            "12778": "T",
+            "13860": "T"
+        }
+    },
+    "21A (Delta)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#8497d0",
+        "strokeColor": "#7383b5",
+        "firstTime": "1613404800000",
+        "parents": "20A",
+        "children":[],
+        "nuc":
+        {
+            "22917": "G",
+            "22995": "A",
+            "27638": "C",
+            "28881": "T",
+            "29402": "T"
+        }
+    },
+    "21B (Kappa)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#84978c",
+        "strokeColor": "#738379",
+        "firstTime": "1614700800000",
+        "parents": "20A",
+        "children":[],
+        "nuc":
+        {
+            "17523": "T",
+            "22917": "G",
+            "23012": "C",
+            "27638": "C",
+            "28881": "T",
+            "29402": "T"
+        }
+    },
+    "21C (Epsilon)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#08b288",
+        "strokeColor": "#079b76",
+        "firstTime": "1609430400000",
+        "parents": "20C",
+        "children":[],
+        "nuc":
+        {
+            "17014": "T",
+            "21600": "T",
+            "22018": "T",
+            "22917": "G"
+        }
+    },
+    "21D (Eta)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#b89702",
+        "strokeColor": "#9f8302",
+        "firstTime": "1611331200000",
+        "parents": "20A",
+        "children":[],
+        "nuc":
+        {
+            "14407": "T",
+            "21717": "G",
+            "24224": "C",
+            "24748": "T"
+        }
+    },
+    "21E (Theta)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#ba4d26",
+        "strokeColor": "#a14321",
+        "firstTime": "1612108800000",
+        "parents": "20B",
+        "children":[],
+        "nuc":
+        {
+            "12049": "T",
+            "23341": "C",
+            "23604": "A",
+            "24187": "A",
+            "24836": "A"
+        }
+    },
+    "21F (Iota)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#3be688",
+        "strokeColor": "#33c776",
+        "firstTime": "1613404800000",
+        "parents": "20C",
+        "children":[],
+        "nuc":
+        {
+            "16500": "C",
+            "20262": "G",
+            "21575": "T",
+            "22320": "G"
+        }
+    },
+    "21G (Lambda)":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#1292a4",
+        "strokeColor": "#107f8e",
+        "firstTime": "1614528000000",
+        "parents": "20B",
+        "children":[],
+        "nuc":
+        {
+            "21786": "T",
+            "21789": "T",
+            "22917": "A",
+            "23031": "C"
+        }
+    },
+    "21H":
+    {
+    	"display": false,
+    	"exist": false,
+        "color": "#4992a4",
+        "strokeColor": "#3f7f8e",
+        "firstTime": "1614614400000",
+        "parents": "20B",
+        "children":[],
+        "nuc":
+        {
+            "11451": "G",
+            "13057": "T",
+            "17491": "T",
+            "21995": "A",
+            "21993": "C",
+            "22599": "A"
+        }
+    }
+}

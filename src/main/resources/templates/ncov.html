@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SARS-CoV-2 Evolution - VGV</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/VGV/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/VGV/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="/VGV/css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/VGV/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/VGV/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/VGV/img/favicon.ico">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <link rel="stylesheet" href="/VGV/vendor/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/VGV/vendor/bootstrap-switch/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="/VGV/vendor/bootstrap-table/bootstrap-table.min.css">
+</head>
+<body>
+<div class="mask"></div>
+<div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand --><a href="/VGV/home" class="navbar-brand d-none d-sm-inline-block">
+                        <div class="brand-text d-none d-lg-inline-block"><span>Virus Genome </span><strong> Viewer</strong></div>
+                        <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>VMG</strong></div>
+                    </a>
+                        <!-- Toggle Button--><a id="toggle-btn" href="#"
+                                                class="menu-btn active"><span></span><span></span><span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="/VGV/img/favicon.png" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="title">
+                    <h1 class="h4">VGV</h1>
+                    <p>Micro exploration</p>
+                </div>
+            </div>
+            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+            <ul class="list-unstyled">
+                <li><a href="/VGV/home"> <i class="icon-home"></i>Home </a></li>
+                <li><a href="#dropdown1" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-sliders"></i>Genome
+                    Browser </a>
+                    <ul id="dropdown1" class="collapse list-unstyled ">
+                        <li><a href="/VGV/select_species">Select Species</a></li>
+                        <li><a href="/VGV/gb">Show</a></li>
+                    </ul>
+                </li>
+                <li><a href="#dropdown2" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-align-left"></i>Multiple
+                    Alignment </a>
+                    <ul id="dropdown2" class="collapse list-unstyled ">
+                        <li><a href="/VGV/select_sequences">Select Sequences</a></li>
+                        <li><a href="/VGV/mul">Show</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="#dropdown3" aria-expanded="true" data-toggle="collapse"> <i
+                        class="fa fa-gear"></i>SARS-CoV-2 Evolution </a>
+                    <ul id="dropdown3" class=" list-unstyled collapse show">
+                        <li><a href="/VGV/ncov/select_sequences">Select Strains</a></li>
+                        <li class="active"><a href="#">Show</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <span class="heading">Extras</span>
+            <ul class="list-unstyled">
+                <li><a href="/VGV/documentation"> <i class="fa fa-file-text-o"></i>Documentation</a></li>
+                <li> <a href="javascript:void(0)" onclick="$(this).html('<i class=&quot;fa fa-envelope-o&quot;></i>weiyanle@126.com');"> <i class="fa fa-envelope-o"></i>Contact Us </a></li>
+            </ul>
+        </nav>
+        <div class="content-inner">
+            <!-- Page Header-->
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h3 id="speinfo" class="no-margin-bottom"></h3>
+                </div>
+            </header>
+            <div class="breadcrumb-holder container-fluid" style="padding-top: 20px;">
+                <div class="row">
+                    <div class="col-xl-2">
+                        <p style="font-size: 22px;">Toolbar</p>
+                    </div>
+                    <div class="col-xl-2 hidediv">
+                        <input id="switch" type="checkbox" data-toggle="switch" data-inverse="true" data-on-text="FULL" data-on-color="default" data-off-text="PACK" data-off-color="info">
+                    </div>
+                    <div class="col-xl-3 hidediv">
+                        <img id="help" title="Help" src="/VGV/images/help.png"
+                             class="tool-icon" onclick="help('dsse')">
+                        <img id="gobackward" title="Go backward" src="/VGV/images/gobackward.png"
+                             class="tool-icon" onclick="gobackward()">
+                        <img id="goforward" title="Go forward" src="/VGV/images/goforward.png"
+                             class="tool-icon" onclick="goforward()">
+                        <img id="toleft" title="To left" src="/VGV/images/toleft.png"
+                             class="tool-icon" onclick="toleft()">
+                        <img id="toright" title="To right" src="/VGV/images/toright.png"
+                             class="tool-icon" onclick="toright()">
+                        <img id="zoomout" title="Zoom out" src="/VGV/images/zoomout.png"
+                             class="tool-icon" onclick="zoomout()">
+                        <img id="zoomin" title="Zoom in" src="/VGV/images/zoomin.png"
+                             class="tool-icon" onclick="zoomin()">
+                    </div>
+                    <div class="col-xl-5 hidediv">
+                        <!--<select id="sechr" class="selectpicker" data-width="80px"></select>-->
+                        <p style="display: inline-block;margin-left: 10px;"> from </p>
+                        <input id="inpos1" class="form-control" type="text" style="width: 85px;display: inline-block;">
+                        <p style="display: inline-block;"> to </p>
+                        <input id="inpos2" class="form-control" type="text" style="width: 85px;display: inline-block;">
+                        <div id="lenp" style="display: inline-block;margin-left: 10px;margin-right: 10px;"></div>
+                        <input id="subpos" class="btn btn-primary" type="submit" value="Go" onclick="jump()">
+                    </div>
+                </div>
+                <div id="packrow" class="row" style="padding: 5px;">
+                    <div class="col-xl-4 hidediv">
+                        <select id="setrk" class="selectpicker" title="Choose at least one track..." data-width="250px"
+                                multiple data-selected-text-format="count > 2" data-actions-box="true">
+                            <option value="19A">19A</option>
+                            <option value="19B">19B</option>
+                            <option value="20A">20A</option>
+                            <option value="20B">20B</option>
+                            <option value="20C">20C</option>
+                            <option value="20D">20D</option>
+                            <option value="20E">20E (EU1)</option>
+                            <option value="20F">20F</option>
+                            <option value="20G">20G</option>
+                            <option value="20H">20H (Beta, V2)</option>
+                            <option value="20I">20I (Alpha, V1)</option>
+                            <option value="20J">20J (Gamma, V3)</option>
+                            <option value="21A">21A (Delta)</option>
+                            <option value="21B">21B (Kappa)</option>
+                            <option value="21C">21C (Epsilon)</option>
+                            <option value="21D">21D (Eta)</option>
+                            <option value="21E">21E (Theta)</option>
+                            <option value="21F">21F (Iota)</option>
+                            <option value="21G">21G (Lambda)</option>
+                            <option value="21H">21H</option>
+                        </select>
+                        <input id="subtrk" class="btn btn-primary" type="submit" value="Set Track" onclick="setrkbt()">
+                    </div>
+                    <div class="col-xl-2">
+                        <p id="dateShow" style="margin-top: 8px;">Date: 2019/12/26</p>
+                    </div>
+                    <div class="col-xl-4" style="display: flex;align-items: center;">
+                        <input id="date" type="range" style="width: 100%;">
+                    </div>
+                    <div class="col-xl-2">
+                        <button type="button" id="button_play" class="btn" onclick="buttonPlayPress()" title="Play">
+                            <i class="fa fa-play"></i>
+                        </button>
+                        <button type="button" id="button_stop" class="btn" onclick="buttonStopPress()" title="Stop">
+                            <i class="fa fa-stop"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="fullrow" class="row" style="padding: 5px;display: none;">
+                    <div class="col-xl-8 offset-4" style="color: #999999;font-size: 13px;">
+                        <p style="margin-bottom: 0px;">Strains are displayed in page by page in genome browser. Modify the paging settings in <a href="#din">Detailed Information</a>.</p>
+                        <p style="margin-bottom: 10px;">Sequence diversity, mutation frequency & phylogenetic tree are still displayed according to all sequences.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Dashboard Counts Section-->
+            <section class="dashboard-counts" style="padding-top: 20px;padding-bottom: 20px;">
+                <div class="container-fluid">
+                    <div class="row bg-white has-shadow" style="padding-top: 0;padding-bottom: 0;">
+                        <div id="trackpanel"
+                             style="width:1160px; height:auto; padding:10px; margin:0 auto;position:relative;user-select: none;">
+                            <div style="position: absolute;top:60px;z-index:0;">
+                                <div style="top:-3px;margin:5px;position:relative;width:175px;font-weight: bold;display:inline-block;"></div>
+                                <div id="sca"
+                                     style="border-top:none;display:inline-block;width:900px;position:relative;overflow: hidden;"></div>
+                            </div>
+                            <div style="margin-top:30px;">
+                                <div style="top:-10px;margin:5px;position:relative;width:175px;font-weight: bold;display:inline-block;">
+                                    <p style="margin-left:28px;">Overview</p>
+                                </div>
+                                <div id="ove"
+                                     style="display:inline-block;width:900px;overflow: hidden;background-image: linear-gradient(to right, #F5FFFA, #F0FFFF,#F0F8FF,#E6E6FA);border-top:2px solid #dddddd;border-bottom:2px solid #dddddd;"></div>
+                            </div>
+                            <div>
+                                <div style="top:-25px;margin:5px;position:relative;width:175px;font-weight: bold;display:inline-block;">
+                                    <p style="margin-left:45px;">Scale</p>
+                                </div>
+                                <div id="sca2"
+                                     style="position:relative;top:-25px;display:inline-block;width:900px;overflow: hidden;height: 30px;"></div>
+                            </div>
+                            <table id="tratab" class="table-hover track-table"
+                                   style="position: relative;top: -45px;"></table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="dashboard-counts" style="padding-top: 20px;padding-bottom: 0px;">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header d-flex align-items-center">
+                            <h3 class="h4">Phylogenetic Tree</h3>
+                        </div>
+                        <div class="card-body" id="ncovTree" style="padding-left: 70px;"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="din" class="dashboard-counts" style="padding-top: 20px;padding-bottom: 20px;">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header d-flex align-items-center">
+                            <h3 class="h4">Detailed Information</h3>
+                        </div>
+                        <div id="covtabParent" class="card-body">
+                            <table id="covtab" class="table table-hover"></table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Page Footer-->
+            <footer class="main-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Copyright &copy; 2021. Virus Genome Viewer All rights reserved.</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <p></p>
+                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+<!-- JavaScript files-->
+<script src="/VGV/vendor/jquery/jquery.min.js"></script>
+<script src="/VGV/vendor/popper.js/umd/popper.min.js"></script>
+<script src="/VGV/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/VGV/vendor/jquery.cookie/jquery.cookie.js"></script>
+<script src="/VGV/vendor/jquery-validation/jquery.validate.min.js"></script>
+<!--<script src="/VGV/js/charts-home.js"></script>-->
+<!-- Main File-->
+<script src="/VGV/js/front.js"></script>
+<script src="/VGV/vendor/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="/VGV/vendor/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script src="/VGV/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/VGV/js/d3.min.js"></script>
+<script src="/VGV/js/gb.js"></script>
+<script>
+    $("#switch").bootstrapSwitch({
+        onSwitchChange: function(e, state) {
+            if(state){
+                $('#packrow').css('display','none');
+                if(objs.covobj.length>10) $('#fullrow').css('display','flex');
+                packconfig[0]=1
+                vertex = 0;
+                reset("changeTime")
+            }else{
+                $('#packrow').css('display','flex');
+                $('#fullrow').css('display','none');
+                packconfig[0]=0
+                vertex = 0;
+                reset("changeTime")
+            }
+        }
+    });
+    //let mintime=1577289600000,maxtime=new Date().valueOf();
+    let state = 'stop';
+    let sumtime=10000,step=50;     //展示的总时间和步长
+    let curtime=mintime, timer=1;
+    $("#date").attr("min",mintime);
+    $("#date").attr("max",maxtime);
+    document.getElementById("date").oninput=function () {
+        state='play';
+        buttonPlayPress();
+        curtime=parseInt($("#date").val());
+        $("#dateShow").text("Date: "+new Date(curtime).toLocaleDateString());
+        packconfig=[0,$("#date").val()];
+        vertex = 0;
+        reset("changeTime");
+    }
+    function buttonPlayPress() {
+        if(state=='stop'){
+            state='play';
+            hideDiv();
+            var button = d3.select("#button_play").classed('btn-primary', true).attr("title","Pause");
+            button.select("i").attr('class', "fa fa-pause");
+            curtime=mintime;
+            timer = setInterval(function()
+            {
+                if(curtime<=maxtime){
+                    $("#dateShow").text("Date: "+new Date(curtime).toLocaleDateString());
+                    packconfig=[0,curtime];
+                    vertex = 0;
+                    $("#date").val(curtime);
+                    reset("changeTime");
+                    curtime+=(maxtime-mintime)/(sumtime/step);
+                }else {
+                    curtime=maxtime;
+                    $("#dateShow").text("Date: "+new Date(curtime).toLocaleDateString());
+                    packconfig=[0,curtime];
+                    vertex = 0;
+                    $("#date").val(curtime);
+                    reset("changeTime");
+
+                    buttonPlayPress();
+                }
+            }, step);
+        }
+        else if(state=='play' || state=='resume'){
+            showDiv();
+            d3.select("#button_play i").attr('class', "fa fa-play").attr("title",state.charAt(0).toUpperCase() + state.slice(1));
+            state = 'pause';
+            clearInterval(timer);
+        }
+        else if(state=='pause'){
+            hideDiv();
+            state = 'resume';
+            d3.select("#button_play i").attr('class', "fa fa-pause").attr("title","Pause");
+            timer = setInterval(function()
+            {
+                if(curtime<=maxtime){
+                    $("#dateShow").text("Date: "+new Date(curtime).toLocaleDateString());
+                    packconfig=[0,curtime];
+                    vertex = 0;
+                    $("#date").val(curtime);
+                    reset("changeTime");
+                    curtime+=(maxtime-mintime)/(sumtime/step);
+                }else clearInterval(timer);
+            }, step);
+        }
+    }
+
+    function buttonStopPress(){
+        showDiv();
+        state = 'stop';
+        var button = d3.select("#button_play").classed('btn-primary', false);
+        button.select("i").attr('class', "fa fa-play");
+        clearInterval(timer);
+        curtime=mintime;
+        $("#dateShow").text("Date: "+new Date(curtime).toLocaleDateString());
+        packconfig=[0,mintime];
+        vertex = 0;
+        reset("changeTime");
+        $("#date").val(mintime);
+    }
+
+    function hideDiv(){
+        $(".hidediv").css("opacity",".7");
+        $(".hidediv").css("pointer-events","none");
+        $("#trackpanel,#covtabParent,#ncovTree,#date").css("pointer-events","none");
+    }
+
+    function showDiv(){
+        $(".hidediv").css("opacity","1");
+        $(".hidediv").css("pointer-events","all");
+        $("#trackpanel,#covtabParent,#ncovTree,#date").css("pointer-events","all");
+    }
+</script>
+</body>
+</html>
+    

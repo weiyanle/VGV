@@ -1,0 +1,10 @@
+#Species取自uniprot
+#Species	Taxonomy ID	RefSeq	Length/Chrs
+Severe acute respiratory syndrome coronavirus 2 (2019-nCoV) (SARS-CoV-2)	2697049	NC_045512.2	29903
+Severe acute respiratory syndrome coronavirus (SARS-CoV)	694009	NC_004718.3	29751
+Middle East respiratory syndrome-related coronavirus (MERS-CoV)	1335626	NC_019843.3	30119
+Human coronavirus 229E (HCoV-229E)	11137	NC_002645.1	27317
+Human coronavirus HKU1 (HCoV-HKU1)	290028	NC_006577.2	29926
+Human coronavirus NL63 (HCoV-NL63)	277944	NC_005831.2	27553
+Human coronavirus OC43 (HCoV-OC43)	31631	NC_006213.1	30741
+Porcine epidemic diarrhea virus	28295	NC_003436.1	28033

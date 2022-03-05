@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Documentation - VGV</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/VGV/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/VGV/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="/VGV/css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/VGV/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/VGV/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/VGV/img/favicon.ico">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+<div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand --><a href="/VGV/home" class="navbar-brand d-none d-sm-inline-block">
+                        <div class="brand-text d-none d-lg-inline-block"><span>Virus Genome </span><strong> Viewer</strong></div>
+                        <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>VMG</strong></div>
+                    </a>
+                        <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="/VGV/img/favicon.png" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="title">
+                    <h1 class="h4">VGV</h1>
+                    <p>Micro exploration</p>
+                </div>
+            </div>
+            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+            <ul class="list-unstyled">
+                <li><a href="/VGV/home"> <i class="icon-home"></i>Home </a></li>
+                <li><a href="#dropdown1" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-sliders"></i>Genome
+                    Browser </a>
+                    <ul id="dropdown1" class="collapse list-unstyled ">
+                        <li><a href="/VGV/select_species">Select Species</a></li>
+                        <li><a href="/VGV/gb">Show</a></li>
+                    </ul>
+                </li>
+                <li><a href="#dropdown2" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-align-left"></i>Multiple
+                    Alignment </a>
+                    <ul id="dropdown2" class="collapse list-unstyled ">
+                        <li><a href="/VGV/select_sequences">Select Sequences</a></li>
+                        <li><a href="/VGV/mul">Show</a></li>
+                    </ul>
+                </li>
+                <li><a href="#dropdown3" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-gear"></i>SARS-CoV-2 Evolution </a>
+                    <ul id="dropdown3" class="collapse list-unstyled ">
+                        <li><a href="/VGV/ncov/select_sequences">Select Strains</a></li>
+                        <li><a href="/VGV/ncov/show">Show</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <span class="heading">Extras</span>
+            <ul class="list-unstyled">
+                <li class="active"><a href="#"> <i class="fa fa-file-text-o"></i>Documentation </a></li>
+                <li> <a href="javascript:void(0)" onclick="$(this).html('<i class=&quot;fa fa-envelope-o&quot;></i>weiyanle@126.com');"> <i class="fa fa-envelope-o"></i>Contact Us </a></li>
+            </ul>
+        </nav>
+        <div class="content-inner">
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom">Documentation</h2>
+                </div>
+            </header>
+            <section class="feeds">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- Trending Articles-->
+                        <div class="col-lg-6">
+                            <div class="articles card" id="ssfv">
+                                <div class="card-header d-flex align-items-center">
+                                    <h2 class="h3">Select Sequences For Visualization</h2>
+                                </div>
+                                <div class="card-body no-padding">
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>View the virus genome, proteome and other information</h5>
+                                            <p>Select a species and click "Select" button to view: <a href="/VGV/select_species">Genome Browser - Select Species</a>.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Perform sequence alignment and view the results</h5>
+                                            <p>Select the sequence to be aligned: <a href="/VGV/select_sequences">Multiple Alignment - Select Sequences</a>. First, select a species in the "All Sequences" table. You can see the whole genome, genes and proteins of the species. Click "Return" to return to the species list. </p><p>The sequence you selected will appear in the "Select List". Click the "Remove From List" button to remove the sequence. Click the "Submit" button to submit the sequences for alignment, and we will return your job ID and a view link. After the comparison, click the link to view the comparison results.</p><p style="color: #777777">Note: you can only select two or more homologous sequences for alignment, such as gene protein alignment is not allowed. For performance reasons, we recommend that you choose no more than 4 Virus Genome sequences, or no more than 20 gene sequences, or no more than 50 protein sequences. </p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Select SARS-CoV-2 strains to view sequence evolution</h5>
+                                            <p>There are nearly 4000 aligned representative SARS-CoV-2 virus strains for you to choose from: <a href="/VGV/ncov/select_sequences">SARS-CoV-2 Evolution - Select Strains. </a>You can screen strains by searching the name, collection time or selecting the evolutionary strain, location and other conditions. Click on the line to view the details of the sample. Note that your selection will not be cancelled due to page turning or changing the filter conditions. Click "Submit" button to visualize the selected strains.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="articles card" id="svrgb">
+                                <div class="card-header d-flex align-items-center">
+                                    <h2 class="h3">Select Visual Range In Genome Browser</h2>
+                                </div>
+                                <div class="card-body no-padding">
+                                    <div class="item d-flex align-items-center">
+                                        <div class="image"><img src="images/toleft.png" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="text">
+                                            <h5>To left button</h5>
+                                            <p>If there is something on the left side of the visual range, you can click this button to move to the left.<p style="color: #777777">Note: All the buttons in the toolbar will automatically check for clickability. For example, if it is already on the far left, this button turns gray and cannot be clicked.</p></p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="image"><img src="images/toright.png" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="text">
+                                            <h5>To right button</h5>
+                                            <p>Similar to "To left" button, but in the opposite direction. </p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="image"><img src="images/zoomout.png" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="text">
+                                            <h5>Zoom out button</h5>
+                                            <p>If the current visual range is not the maximum, clicking this button will enlarge your field of vision up to 3 times. </p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="image"><img src="images/zoomin.png" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="text">
+                                            <h5>Zoom in button</h5>
+                                            <p>Similar to "Zoom out" button, but to reduce the visual range. </p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="image"><img src="images/gobackward.png" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="text">
+                                            <h5>Go backward button</h5>
+                                            <p>Undo the range selection you just made.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="image"><img src="images/goforward.png" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="text">
+                                            <h5>Go forward button</h5>
+                                            <p>Redo the range selection you just made.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Positioning tool</h5>
+                                            <p>The positioning tool is located in the toolbar and displays the start, end and length of the current visual range. You can enter the start stop position and click the "Go" button to jump. </p><p style="color: #777777">Note: for visual effect, please select a region with at least 25 bases.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Overview track</h5>
+                                            <p>Overview track represents the whole sequence. The orange box represents the position of the current visible range. You can select an area on the track or drag the orange box to jump to that area.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Scale track</h5>
+                                            <p>Scale track represents the current visible area. Similarly, you can select some areas on the track to see the details.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Drag movable track</h5>
+                                            <p>"Movable track" here refers to all tracks except overview track and scale track. As you drag, all the elements on these tracks will follow.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="articles card" id="dmsar">
+                                <div class="card-header d-flex align-items-center">
+                                    <h2 class="h3">Display Of Multiple Sequence Alignment Results</h2>
+                                </div>
+                                <div class="card-body no-padding">
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Aligned sequences</h5>
+                                            <p>In the genome browser, all the sequences are aligned, and the missing bases/amino acids are filled with "-" relative to other sequences. If you want to know the original position of a base/amino acid in an aligned sequence, please pay attention to the note on the right side of the sequence, which indicates the position of the leftmost and rightmost base/amino acid in the original sequence.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Sequence similarity</h5>
+                                            <p>There are three tracks to show the sequence similarity of a site from different aspects: consensus, which only focuses on those bases/amino acids that are the same in all sequences; Conservation, focusing on the proportion of major bases/amino acids; Sequence diversity, which uses Shannon entropy to measure the degree of variation of a sequence.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Phylogenetic tree</h5>
+                                            <p>The phylogenetic tree was constructed by neighbor joining method, and the evolutionary relationship among these species was inferred according to the sequence similarity. The closer the evolution distance, the closer the two species are in the evolutionary tree.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="articles card" id="tgb">
+                                <div class="card-header d-flex align-items-center">
+                                    <h2 class="h3">Tracks In Genome Browser</h2>
+                                </div>
+                                <div class="card-body no-padding">
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Sequence</h5>
+                                            <p>The reference genome sequence of the virus was displayed according to the principle of base complementary pairing. For visual effect, the track will only be displayed within 300 base pairs.</p>
+                                            <p>The color system we used to display the base sequence is as follows (multiple sequence alignment and SARS-CoV-2 sequence evolution also follow):</p>
+                                            <div class="row">
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #FFFF00;">A</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #FF4500;">T</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #43CD80;">C</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #7B68EE;">G</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #FFE4C4;">N</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-1 offset-2 no-padding text-center" style="background-color: #FFA500;">U</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #F08080;">R</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #DDA0DD;">Y</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #D8BFD8;">K</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #54FF9F;">M</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #B3EE3A;">S</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #e80b63;">W</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #FFF5EE;">B</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #c63a29;">D</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #87CEFA;">V</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-1 offset-2 no-padding text-center" style="background-color: #00CED1;">H</div>
+                                                <div class="col-sm-1 offset-1 no-padding text-center" style="background-color: #c2bd93;">X</div>
+                                                <div class="col-sm-2 offset-1 no-padding text-center" style="background-color: #AAAAAA;">DELETE</div>
+                                                <div class="col-sm-2 offset-1 no-padding text-center" style="background-color: #b419d9;">INSERT</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>RefSeq genes</h5>
+                                            <p>Display NCBI gene annotation. The gene name is displayed on the left or lower side of the gene. Click the gene or name to get more information about the gene's start stop, ID, NCBI link, etc.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>UniProt protein products</h5>
+                                            <p>Display UniProt protein product. Click on the protein for more information about start stop, alias, length, and UniProt links. Zoom in to see the amino acid sequence.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>UniProt protein annotations</h5>
+                                            <p>Protein annotations from UniProt are classified into the following tracks according to their types:</p>
+                                            <table class="table table-sm" style="margin-top: 10px;">
+                                                <thead>
+                                                <th>Track Name</th><th>Type</th>
+                                                </thead>
+                                                <tbody>
+                                                <tr><td>Regions</td><td>Region</td></tr>
+                                                <tr><td>Signal Peptides</td><td>Signal peptide</td></tr>
+                                                <tr><td>Transmem. Domains</td><td>Transmembrane</td></tr>
+                                                <tr><td>Chains</td><td>Chain</td></tr>
+                                                <tr><td>Protein Domains</td><td>Topological domain, Domain, Zinc finger</td></tr>
+                                                <tr><td>Disulf. Bonds</td><td>Disulfide bond</td></tr>
+                                                <tr><td>Glycosy/Phosph. Sites</td><td>Glycosylation, Modified residue</td></tr>
+                                                <tr><td>Mutations</td><td>Mutagenesis, Natural variant</td></tr>
+                                                <tr><td>Structure</td><td>Beta strand, Helix, Coiled coi, Turns</td></tr>
+                                                <tr><td>Sequence Conflicts</td><td>Sequence conflict</td></tr>
+                                                <tr><td>Repeats</td><td>Repeat</td></tr>
+                                                <tr><td>Other Annot.</td><td>All other annotations</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>GC percentage</h5>
+                                            <p>Show the proportion of guanine and cytosine in each part of the sequence. The blue histogram ranges from 0% to 100%.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>TRSs</h5>
+                                            <p>Coronavirus transcription involves template switching at specific regions, called transcriptional regulatory sequences (TRS). The TRS-L and TRS-S core sequences we show are from this study: </p><a href="https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/msaa281" target="_blank">Yang Y, Yan W, Hall AB, Jiang X. Characterizing Transcriptional Regulatory Sequences in Coronaviruses and Their Role in Recombination. Mol Biol Evol. 2021;38(4):1241-1248. doi:10.1093/molbev/msaa281</a>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Manage tracks</h5>
+                                            <p>Select from the track selection bar of the toolbar, and then click the "Set Track" button to change the track to be displayed.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="articles card" id="dsse">
+                                <div class="card-header d-flex align-items-center">
+                                    <h2 class="h3">Display Of SARS-CoV-2 Sequence Evolution</h2>
+                                </div>
+                                <div class="card-body no-padding">
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Mode switching</h5>
+                                            <p>After selecting several virus strains and visualizing them, they enter the pack mode by default. In pack mode, all the strains were assigned to different clades and displayed according to the clades. Click the toggle switch in the toolbar to switch to full mode. In full mode, all the virus sequences will be displayed in the genome browser, and the specific information of all strains will also be displayed in the table below. </p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Mutation display</h5>
+                                            <p>At a smaller scale, the indicator bar and color in the sequence track represent the mutation and the base after mutation compared with the reference sequence. At the base scale, bases different from the reference sequence will be highlighted. For insertion mutation, click the insertion site to view the inserted sequence. </p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Sequence diversity track</h5>
+                                            <p>Shannon entropy of each base site in the current selected sequence was calculated and displayed in the form of histogram.</p><p style="color: #777777">Note: ignore insertion mutation and base "N". </p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Mutation frequency track</h5>
+                                            <p>The proportion of each base site in the current selected sequence different from the reference sequence was calculated and displayed in the form of dot graph.</p><p style="color: #777777">Note: considering the inconsistent sequencing quality, only the mutation caused by base substitution was calculated. </p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Phylogenetic Tree</h5>
+                                            <p>Display the position of the virus in the evolutionary tree. Click on the strains node to view the details.</p>
+                                        </div>
+                                    </div>
+                                    <div class="item d-flex align-items-center">
+                                        <div class="text">
+                                            <h5>Let the sequence evolve</h5>
+                                            <p>In pack mode, it shows the variation of the latest virus in each branch of evolution on a certain day. The date is displayed in the toolbar, and on the right side of it is a time control. You can drag or click the time bar, or click the start/pause/continue button or stop button to see the evolution of these sequences over time.</p>
+                                            <p>Sequence diversity, mutation frequency and phylogenetic tree will be updated according to the currently displayed sequence. The virus information form will also be updated.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Page Footer-->
+            <footer class="main-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Copyright &copy; 2021. Virus Genome Viewer All rights reserved.</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <p></p>
+                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+<!-- JavaScript files-->
+<script src="/VGV/vendor/jquery/jquery.min.js"></script>
+<script src="/VGV/vendor/popper.js/umd/popper.min.js"></script>
+<script src="/VGV/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/VGV/vendor/jquery.cookie/jquery.cookie.js"></script>
+<script src="/VGV/vendor/jquery-validation/jquery.validate.min.js"></script>
+<!--<script src="/VGV/js/charts-home.js"></script>-->
+<!-- Main File-->
+<script src="/VGV/js/front.js"></script>
+</body>
+</html>

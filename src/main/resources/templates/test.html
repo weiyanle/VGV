@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width"/>
+<title>Untitled</title>
+<style>
+@-webkit-keyframes nodeInserted {  
+  from { opacity: 0; }
+  to { opacity: 1; }  
+}
+#parentElement > li {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: nodeInserted;
+}
+</style>
+</head>
+<body>
+<div class="g-doc">
+    <ul id="parentElement">
+      
+    </ul>
+    <input type="button" value="插入" id="insert"/>
+</div>
+<script>
+  var elm = document.getElementById('insert');
+  var parentElement = document.getElementById('parentElement');
+  elm.addEventListener('click',function(){
+    var li = document.createElement('li');
+    li.innerText ='Element has been injected!'
+    parentElement.appendChild(li);
+  })
+</script>
+ 
+</body>
+</html>
